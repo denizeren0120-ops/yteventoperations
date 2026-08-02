@@ -3,346 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YT SAHA - Event Operations & Saha Yönetimi</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>YT EVENT OPERATIONS | Profesyonel Etkinlik & Saha Yönetimi</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary: #d4af37;
-            --primary-hover: #b59326;
-            --bg-dark: #0a0a0a;
-            --card-bg: #141414;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --border-color: #262626;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Header / Navbar */
-        header {
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 160px 2rem 80px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-        }
-
-        /* Form Container (Hızlı Teklif Al) */
-        .form-section {
-            max-width: 700px;
-            margin: 0 auto 100px;
-            padding: 0 1.5rem;
-        }
-
-        .form-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .form-card h2 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            text-align: center;
-        }
-
-        .form-card p.subtitle {
-            color: var(--text-muted);
-            text-align: center;
-            font-size: 0.9rem;
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.9rem 1.1rem;
-            background: #0a0a0a;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: var(--text-light);
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            transition: background 0.3s, transform 0.2s;
-        }
-
-        .btn-submit:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-
-        /* Services Grid */
-        .services {
-            max-width: 1200px;
-            margin: 0 auto 100px;
-            padding: 0 2rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2rem;
-            border-radius: 12px;
-            transition: border-color 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary);
-        }
-
-        .service-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            margin-bottom: 0.5rem;
-        }
-
-        .service-card p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-    </style>
 </head>
 <body>
 
-    <!-- Header / Navbar -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">YT <span>SAHA</span></a>
-            <ul class="nav-links">
-                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
-                <li><a href="#teklif">Hızlı Teklif</a></li>
-            </ul>
-        </div>
+    <!-- Üst Navigasyon Barı -->
+    <header class="navbar">
+        <div class="logo">YT <span>EVENT OPERATIONS</span></div>
+        <nav>
+            <a href="#hakkimizda">Hakkımızda</a>
+            <a href="#hizmetler">Hizmetlerimiz</a>
+            <a href="#galeri">Saha Galerisi</a>
+            <a href="#iletisim" class="nav-btn">İletişim</a>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero / Ana Açılış Bölümü -->
     <section class="hero">
-        <h1>YT EVENT OPERATIONS</h1>
-        <p>Elazığ ve bölge genelinde kongre, fuar, seminer ve kurumsal etkinlikler için profesyonel saha operasyonları ve kayıt masası çözümleri.</p>
-    </section>
-
-    <!-- Hızlı Teklif Al Formu -->
-    <section class="form-section" id="teklif">
-        <div class="form-card">
-            <h2>Hızlı Teklif Al</h2>
-            <p class="subtitle">Formu doldurun, talebiniz anında WhatsApp üzerinden bize ulaşsın.</p>
-            
-            <form id="teklifFormu" onsubmit="whatsappGonder(event)">
-                <div class="form-group">
-                    <label for="adSoyad">Ad Soyad / Kurum Adı</label>
-                    <input type="text" id="adSoyad" class="form-control" placeholder="Örn: Ahmet Yılmaz" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefon">Telefon Numaranız</label>
-                    <input type="tel" id="telefon" class="form-control" placeholder="Örn: 0531 000 00 00" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="etkinlikTuru">Etkinlik Türü</label>
-                    <input type="text" id="etkinlikTuru" class="form-control" placeholder="Örn: Kongre, Seminer, Saha Ekibi" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="detay">Etkinlik Detayları & İhtiyaçlar</label>
-                    <textarea id="detay" class="form-control" placeholder="Tarih, kişi sayısı ve özel isteklerinizi yazabilirsiniz..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp ile Teklif Al
-                </button>
-            </form>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge"><i class="fas fa-globe"></i> 81 İlde Hizmet & Bölgesel Güçlü Saha Ekibi</span>
+            <h1>YT EVENT OPERATIONS</h1>
+            <p>Her Detayı Planlıyor, Her Anı Kusursuz Yönetiyoruz.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/905314537267" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Hızlı Teklif
+                </a>
+                <a href="tel:+905314537267" class="btn btn-phone">
+                    <i class="fas fa-phone-alt"></i> Hemen Ara
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Hizmetler Section -->
-    <section class="services" id="hizmetler">
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-clipboard-user"></i>
-                <h3>Kayıt & Karşılama Ekibi</h3>
-                <p>Kongre ve etkinliklerinizde davetlilerinizi karşılayan profesyonel ve disiplinli saha ekibi.</p>
+    <!-- Hakkımızda Bölümü -->
+    <section id="hakkimizda" class="container">
+        <div class="about-card card">
+            <div class="about-text">
+                <span class="sub-title">BİZ KİMİZ?</span>
+                <h2>Türkiye Geneli Güçlü Ağ, Doğu & Güneydoğu'da Yerel Uzmanlık</h2>
+                <p><strong>YT EVENT OPERATIONS</strong> olarak Türkiye’nin 81 ilinde düzenlenen kongre, fuar, lansman, seminer ve kurumsal organizasyonlarda yüksek standartlarda saha operasyon hizmeti sunuyoruz.</p>
+                <p>Özellikle <strong>Doğu Anadolu ve Güneydoğu Anadolu</strong> bölgelerinde yerleşik, eğitimli ve dinamik <strong>yerel saha ekibimizle</strong> hızlı aksiyon alıyor; akreditasyon, salon koordinasyonu ve VIP protokol ağırlama gibi kritik süreçlerde sıfır hatayla çalışıyoruz.</p>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-sitemap"></i>
-                <h3>Salon Koordinasyonu</h3>
-                <p>Oturum takibi, yönlendirmeler ve salon içi akışın sorunsuz yönetilmesi.</p>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>81 İl Kapsama</h3>
+                    <p>Türkiye Genelinde Operasyonel Yetkinlik</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Yerel Saha Ekibi</h3>
+                    <p>Doğu & Güneydoğu'da Güçlü ve Hızlı Kadro</p>
+                </div>
+                <div class="stat-box">
+                    <i class="fas fa-clock"></i>
+                    <h3>Anlık Kriz Yönetimi</h3>
+                    <p>7/24 Sahada Kesintisiz Koordinasyon</p>
+                </div>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-truck-ramp-box"></i>
-                <h3>Saha Lojistik Destek</h3>
-                <p>Yaka kartı basımı, broşür/hediye çantası hazırlığı ve stant alanı lojistiği.</p>
+        </div>
+    </section>
+
+    <!-- Hizmetlerimiz Bölümü -->
+    <section id="hizmetler" class="container">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="grid">
+            <div class="card service-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Kayıt Karşılama">
+                </div>
+                <div class="card-body">
+                    <i class="fas fa-id-card card-icon"></i>
+                    <h3>Kayıt & Karşılama Masası</h3>
+                    <p>Davetli karşılama, akreditasyon işlemleri, yaka kartı basım/dağıtımı ve profesyonel yönlendirme.</p>
+                </div>
+            </div>
+
+            <div class="card service-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Salon Koordinasyonu">
+                </div>
+                <div class="card-body">
+                    <i class="fas fa-chalkboard-teacher card-icon"></i>
+                    <h3>Kongre & Salon Koordinasyonu</h3>
+                    <p>Sahne arkası akış yönetimi, sunum takibi, salon oturma düzeni ve VIP protokol refakat hizmetleri.</p>
+                </div>
+            </div>
+
+            <div class="card service-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=600&q=80" alt="Lansman ve Fuar">
+                </div>
+                <div class="card-body">
+                    <i class="fas fa-bullhorn card-icon"></i>
+                    <h3>Fuar & Marka Lansmanı</h3>
+                    <p>Stand alanlarında, fuarlarda ve ürün tanıtımlarında markanızı en doğru temsil eden saha personeli.</p>
+                </div>
+            </div>
+
+            <div class="card service-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=600&q=80" alt="Saha Lojistik">
+                </div>
+                <div class="card-body">
+                    <i class="fas fa-tasks card-icon"></i>
+                    <h3>Saha Operasyon & Lojistik</h3>
+                    <p>Etkinlik alanlarında kalabalık yönetimi, yönlendirme, ekipman koordinasyonu ve saha lojistiği.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri / Saha Operasyonları -->
+    <section id="galeri" class="container">
+        <h2 class="section-title">Saha Operasyonlarımızdan Kareler</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Kongre Yönetimi">
+                <div class="gallery-hover"><span>Kongre & Seminer Yönetimi</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="VIP Ağırlama">
+                <div class="gallery-hover"><span>VIP & Protokol Karşılama</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80" alt="Fuar Stand">
+                <div class="gallery-hover"><span>Fuar Stand Operasyonları</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" alt="Saha Ekibi">
+                <div class="gallery-hover"><span>Yerel Saha Ekip Koordinasyonu</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Lansman">
+                <div class="gallery-hover"><span>Lansman & Etkinlik Alanı</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=600&q=80" alt="Kayıt Masası">
+                <div class="gallery-hover"><span>Kayıt & Akreditasyon Yönetimi</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- İletişim Detayları ve Form -->
+    <section id="iletisim" class="container">
+        <div class="contact-wrapper card">
+            <div class="contact-info">
+                <h2>İletişime Geçin</h2>
+                <p>Türkiye geneli organizasyonlarınız ve Doğu/Güneydoğu saha operasyonlarınız için hemen teklif alın.</p>
+                
+                <div class="contact-methods">
+                    <a href="https://wa.me/905314537267" target="_blank" class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <span>WhatsApp Hattı</span>
+                            <strong>+90 531 453 72 67</strong>
+                        </div>
+                    </a>
+                    <a href="tel:+905314537267" class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <span>Telefon</span>
+                            <strong>+90 531 453 72 67</strong>
+                        </div>
+                    </a>
+                    <a href="mailto:yttalhaefe@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span>E-Posta Adresi</span>
+                            <strong>yttalhaefe@gmail.com</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>Hızlı Teklif Formu</h3>
+                <form onsubmit="event.preventDefault(); alert('Teklif talebiniz alındı! En kısa sürede sizinle iletişime geçeceğiz.');">
+                    <input type="text" placeholder="Adınız / Kurum Adı" required>
+                    <input type="email" placeholder="E-Posta Adresiniz" required>
+                    <input type="tel" placeholder="Telefon Numaranız" required>
+                    <textarea rows="4" placeholder="Organizasyon Detayı (Şehir, Tarih, Personel Sayısı)" required></textarea>
+                    <button type="submit" class="btn btn-whatsapp" style="width:100%; border:none; cursor:pointer;">Teklif İste</button>
+                </form>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 YT SAHA - Event Operations & Coordination. Tüm hakları saklıdır.</p>
+        <p>&copy; 2026 YT EVENT OPERATIONS. Tüm Hakları Saklıdır. | Saha & Etkinlik Operasyonları</p>
     </footer>
 
-    <!-- WHATSAPP YÖNLENDİRME KODU -->
-    <script>
-    function whatsappGonder(event) {
-      event.preventDefault(); // Sayfanın yenilenmesini engeller
-
-      // Form değerlerini alma
-      const adSoyad = document.getElementById('adSoyad').value;
-      const telefon = document.getElementById('telefon').value;
-      const etkinlik = document.getElementById('etkinlikTuru').value;
-      const detay = document.getElementById('detay').value;
-
-      // WhatsApp Telefon Numarası
-      const wpNo = "905314537267";
-
-      // Mesaj Formatı
-      const mesaj = `Merhaba YT SAHA, sitemiz üzerinden yeni bir teklif talebi geldi:%0A%0A` +
-                    `*Ad Soyad / Kurum:* ${encodeURIComponent(adSoyad)}%0A` +
-                    `*Telefon:* ${encodeURIComponent(telefon)}%0A` +
-                    `*Etkinlik Türü:* ${encodeURIComponent(etkinlik)}%0A` +
-                    `*Detaylar:* ${encodeURIComponent(detay)}`;
-
-      // WhatsApp Açma
-      window.open(`https://wa.me/${wpNo}?text=${mesaj}`, '_blank');
-    }
-    </script>
+    <!-- Sabit Mobil WhatsApp Butonu -->
+    <a href="https://wa.me/905314537267" class="float-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
